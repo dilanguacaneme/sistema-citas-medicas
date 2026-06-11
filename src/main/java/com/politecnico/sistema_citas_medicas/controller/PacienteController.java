@@ -39,7 +39,7 @@ public class PacienteController {
     }
     //Buscar paciente por documento
     @GetMapping("/buscar-por-documento/{documento}")
-    public Paciente obtenerPacientePorDocumento (@PathVariable  String documento){
+    public String obtenerPacientePorDocumento (@PathVariable  String documento){
         return pacienteService.obtenerPacientePorDocumento(documento);
     }
 }

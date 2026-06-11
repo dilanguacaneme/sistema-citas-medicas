@@ -2,9 +2,7 @@ package com.politecnico.sistema_citas_medicas.controller;
 
 
 import com.politecnico.sistema_citas_medicas.entity.Medico;
-import com.politecnico.sistema_citas_medicas.entity.Paciente;
 import com.politecnico.sistema_citas_medicas.service.MedicoService;
-import com.politecnico.sistema_citas_medicas.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -7,24 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class MedicoService {
 
     @Autowired
-    private final MedicoRepository medicoRepitory;
+    private final MedicoRepository medicoRepository;
 
     public List<Medico> obtenerMedicos() {
 
-        return medicoRepitory.findAll();
+        return medicoRepository.findAll();
     }
 
     public Medico obtenerMedicoPorId(Long id) {
 
-        if (medicoRepitory.existsById(id)){
-            return medicoRepitory.findById(id).orElse(null);
+        if (medicoRepository.existsById(id)){
+            return medicoRepository.findById(id).orElse(null);
         }else {
           throw new RuntimeException("Error: No existe medico con esta id");
         }
@@ -32,16 +31,17 @@ public class MedicoService {
 
     public Medico guardarMedico(Medico medico) {
 
-        return medicoRepitory.save(medico);
+        return medicoRepository.save(medico);
     }
 
     public void eliminarMedico(Long id) {
 
-        if ((medicoRepitory.existsById(id))){
-            medicoRepitory.deleteById(id);
+        if ((medicoRepository.existsById(id))){
+            medicoRepository.deleteById(id);
         } else {
             throw new RuntimeException("Error: Verifique que la id, este registrada a un medico");
         }
 
     }
+
 }

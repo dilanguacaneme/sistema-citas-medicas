@@ -28,7 +28,7 @@ public class PacienteService  {
         return pacienteRepository.findById(id).orElse(null);
     }
 
-    public Paciente obtenerPacientePorDocumento (String documento){
+    public String obtenerPacientePorDocumento (String documento){
 
         Paciente paciente = pacienteRepository.findByDocumento(documento);
 
@@ -36,7 +36,7 @@ public class PacienteService  {
         if (paciente == null){
             throw new IllegalArgumentException("Error: No existe un paciente con ese documento" + documento);
         }
-        return paciente;
+        return "Datos del paciente " + paciente;
     }
 
     public Paciente guardarPaciente(Paciente paciente) {

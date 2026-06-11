@@ -2,6 +2,7 @@ package com.politecnico.sistema_citas_medicas.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,8 @@ public class Cita {
 
     private LocalTime hora;
 
-    private Boolean confirmacion = false;
+
+    private String confirmacion = "Por confirmar";
 
     @ManyToOne
     @JoinColumn(name = "paciente_id", nullable = false)

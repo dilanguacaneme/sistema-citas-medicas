@@ -30,8 +30,6 @@ public class Medico {
     @Size(min = 3, max = 50)
     private String especialidad;
 
-    @NotBlank(message = "El consultorio no puede estar vacio")
-    @Size(min = 3, max = 50)
     private Integer consultorio;
 
 
