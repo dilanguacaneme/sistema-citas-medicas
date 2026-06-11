@@ -1,9 +1,7 @@
 package com.politecnico.sistema_citas_medicas.service;
 
 import com.politecnico.sistema_citas_medicas.entity.Medico;
-import com.politecnico.sistema_citas_medicas.entity.Paciente;
-import com.politecnico.sistema_citas_medicas.repository.MedicoRepitory;
-import com.politecnico.sistema_citas_medicas.repository.PacienteRepository;
+import com.politecnico.sistema_citas_medicas.repository.MedicoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,17 +14,20 @@ import java.util.Optional;
 public class MedicoService {
 
     @Autowired
-    private final MedicoRepitory medicoRepitory;
+    private final MedicoRepository medicoRepitory;
 
     public List<Medico> obtenerMedicos() {
+
         return medicoRepitory.findAll();
     }
 
-    public Optional<Medico> obtenerMedicoPorId(Long id) {
-        return medicoRepitory.findById(id);
+    public Medico obtenerMedicoPorId(Long id) {
+
+        return medicoRepitory.findById(id).orElse(null);
     }
 
     public Medico guardarMedico(Medico medico) {
+
         return medicoRepitory.save(medico);
     }
 
