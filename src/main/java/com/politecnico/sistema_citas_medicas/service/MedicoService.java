@@ -23,7 +23,11 @@ public class MedicoService {
 
     public Medico obtenerMedicoPorId(Long id) {
 
-        return medicoRepitory.findById(id).orElse(null);
+        if (medicoRepitory.existsById(id)){
+            return medicoRepitory.findById(id).orElse(null);
+        }else {
+          throw new RuntimeException("Error: No existe medico con esta id");
+        }
     }
 
     public Medico guardarMedico(Medico medico) {
@@ -32,6 +36,12 @@ public class MedicoService {
     }
 
     public void eliminarMedico(Long id) {
-        medicoRepitory.deleteById(id);
+
+        if ((medicoRepitory.existsById(id))){
+            medicoRepitory.deleteById(id);
+        } else {
+            throw new RuntimeException("Error: Verifique que la id, este registrada a un medico");
+        }
+
     }
 }
